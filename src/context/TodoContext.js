@@ -55,7 +55,7 @@ function TodoProvider (props) {
                 deleteTodo
             }}
         >
-            { props.children }
+          { props.children }
         </TodoContext.Provider>
     );
 }
