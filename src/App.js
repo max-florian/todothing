@@ -1,4 +1,5 @@
 import React from 'react';
+import { TodoProvider, TodoContext } from './context/TodoContext';
 
 import { TodoCounter } from './components/TodoCounter';
 import { TodoSearch } from './components/TodoSearch';
@@ -8,34 +9,49 @@ import { CreateTodoButton } from './components/CreateTodoButton';
 
 import './App.css';
 
-const todos = [
-  { id: 1, text: 'Tarea 1', completed: false },
-  { id:2, text: 'Tarea 2', completed: false },
-  { id:3, text: 'Tarea 3', completed: false }
-]
-
 function App() {
+
   return (
-    <React.Fragment>
-      <TodoCounter/>
-      <TodoSearch/>
+    <TodoProvider>
+      <React.Fragment>
+        <TodoCounter/>
+        <TodoSearch/>
 
-      <TodoList>
-        {
-          todos.map(todo=>{
-            return(
-              <TodoItem 
-                key={todo.id} 
-                text={todo.text} 
-                completed={todo.completed}
-              />
-            )
-          })
-        }
-      </TodoList>
+        <TodoContext.Consumer>
+          {({
+            error,
+            loading,
+            searchedTodos,
+            completeTodo,
+            deleteTodo
+          }) => {
+            return (
+              <TodoList>
+                {error && <p>Desespérate, hubo un error...</p>}
+                {loading && <p>Estamos cargando, no desesperes...</p>}
+                {(!loading && !searchedTodos.length) && <p>¡Crea tu primer TODO!</p>}
 
-      <CreateTodoButton/>
-    </React.Fragment>
+                {
+                  searchedTodos.map(todo=>{
+                    return(
+                      <TodoItem 
+                        key={todo.id} 
+                        text={todo.text} 
+                        completed={todo.completed}
+                        onComplete={()=> completeTodo(todo.id)}
+                        onDelete={()=> deleteTodo(todo.id)}
+                      />
+                    )
+                  })
+                }
+              </TodoList>
+            );
+          }}
+        </TodoContext.Consumer>
+
+        <CreateTodoButton/>
+      </React.Fragment>
+    </TodoProvider>
     );
 }
 
