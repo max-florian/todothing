@@ -3,14 +3,15 @@ import './index.css';
 
 function CreateTodoButton(props) {
 
-    const onClickButton = (msg) => {
-        alert(msg);
+    const onClickButton = () => {
+        // Devolver la negación del estado anterior de setOpenModal
+        props.setOpenModal(prevState => !prevState);
     };
 
     return (
         <button 
             className="CreateTodoButton"
-            onClick={() => onClickButton('Aquí se debería abrir el modal')}
+            onClick={onClickButton}
         >
             +
         </button>

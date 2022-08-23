@@ -6,6 +6,7 @@ import { TodoSearch } from './components/TodoSearch';
 import { TodoList } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
 import { CreateTodoButton } from './components/CreateTodoButton';
+import { Modal } from './components/Modal';
 
 import './App.css';
 
@@ -25,9 +26,12 @@ function App() {
             loading,
             searchedTodos,
             completeTodo,
-            deleteTodo
+            deleteTodo,
+            openModal,
+            setOpenModal
           }) => {
             return (
+              <>
               <TodoList>
                 {error && <p>Desespérate, hubo un error...</p>}
                 {loading && <p>Estamos cargando, no desesperes...</p>}
@@ -47,11 +51,27 @@ function App() {
                   })
                 }
               </TodoList>
+              {
+                !!openModal && (
+                  <Modal>
+                    <p>Texxxxt</p>
+                  </Modal>
+                )
+              }
+
+              <CreateTodoButton
+                setOpenModal={setOpenModal}
+              />
+              </>
             );
+
+            
           }}
         </TodoContext.Consumer>
 
-        <CreateTodoButton/>
+        
+
+        
       </React.Fragment>
     </TodoProvider>
     );
