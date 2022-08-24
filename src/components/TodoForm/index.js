@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../../context/TodoContext";
+import "./index.css"
 
 function TodoForm() {
     
     const [newTodoValue, setNewTodoValue] = React.useState('');
     
+
     const {
       addTodo,
       setOpenModal,
-    } = React.useContext(TodoContext);
+    } = useContext(TodoContext);
     
 
     const onChange = (event) => {
@@ -21,7 +24,7 @@ function TodoForm() {
     
 
     const onSubmit = (event) => {
-      event.preventDefault();
+      event.preventDefault(); // Para que no se recargue toda la pagina luego de hacer submit
       addTodo(newTodoValue);
       setOpenModal(false);
       setNewTodoValue('')
@@ -46,6 +49,7 @@ function TodoForm() {
           <button
             type="submit"
             className="TodoForm-button TodoForm-button--add"
+            onClick={addTodo}
           >
             Agregar
           </button>
