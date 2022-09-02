@@ -4,22 +4,19 @@ import './index.css';
 function TodoItem(props) {
     return (
         <li className="TodoItem">
-            <span 
+            <i 
                 className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
                 onClick={props.onComplete}
-            
             >
-                √
-            </span>
+            </i>
             <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
                 {props.text}
             </p>
-            <span 
+            <li 
                 className="Icon Icon-delete"
                 onClick={props.onDelete}
             >
-                X
-            </span>
+            </li>
         </li>
     )
 }

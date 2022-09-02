@@ -1,4 +1,4 @@
-.CreateTodoButton {
+/* .CreateTodoButton {
     background-color: #61DAFA;
     box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
     border: none;
@@ -23,4 +23,76 @@
   
   .CreateTodoButton:hover {
     transform: rotate(224deg);
-  }
+  } */
+
+  
+.CreateTodoButton {
+  appearance: button;
+  background-color: #f55c5c;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: din-round,sans-serif;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  border-radius: 16px;
+  font-size: 50px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 64px;
+    
+  z-index: 1;
+}
+
+.CreateTodoButton:after {
+  background-clip: padding-box;
+  background-color: #ff7575;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.CreateTodoButton:main,
+.CreateTodoButton:focus {
+  user-select: auto;
+}
+
+.CreateTodoButton:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.CreateTodoButton:disabled {
+  cursor: auto;
+}

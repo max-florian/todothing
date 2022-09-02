@@ -9,12 +9,25 @@ function TodoSearch() {
     };
 
     return (
-        <input 
-            className="TodoSearch"
-            placeholder='Ejemplo'
-            value={searchValue}
-            onChange={onSearchValueChange}
-        />
+        <div id="cover">
+            <div className="tb">
+                <div className="td">
+                    <input 
+                        type="text" 
+                        className="TodoSearch" 
+                        value={searchValue}
+                        onChange={onSearchValueChange}
+                        placeholder="Buscar" 
+                    />
+                </div>
+                <div className="td" id="s-cover">
+                    <button className="SearchButton" type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
     )
 }
 
