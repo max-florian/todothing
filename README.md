@@ -16,12 +16,12 @@ npm start
 ```
 
 # Despliegue de TODOs
-![Screenshot](images/img1.png)
+![Screenshot](images/img1.PNG)
   
 # Busqueda de TODOs
-![Screenshot](images/img2.png)
+![Screenshot](images/img2.PNG)
   
 # Agregar un nuevo TODO
-![Screenshot](images/img3.png)
+![Screenshot](images/img3.PNG)
   
 
